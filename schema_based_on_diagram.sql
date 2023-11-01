@@ -70,3 +70,7 @@ CREATE INDEX index_medical_history ON invoices(medical_history_id);
 CREATE INDEX index_invoice ON invoice_items(treatment_id);
 
 CREATE INDEX index_patient ON medical_histories(patient_id);
+
+CREATE INDEX index_med_history_treatment ON medical_histories_treatment(treatment_id);
+
+CREATE INDEX index_med_history_id ON medical_histories_treatment(med_history_id);
