@@ -44,7 +44,7 @@ ADD CONSTRAINT patient_fk FOREIGN KEY(patient_id)
 REFERENCES patients(id);
 
 ALTER TABLE invoices
-ADD CONSTRAINT medical_histories_id_fk FOREIGN KEY(medical_histories_id)
+ADD CONSTRAINT medical_history_id_fk FOREIGN KEY(medical_history_id)
 REFERENCES medical_histories(id);
 
 ALTER TABLE invoice_items
@@ -62,3 +62,11 @@ REFERENCES medical_histories(id);
 ALTER TABLE med_history_treatment
 ADD CONSTRAINT treatment_id_fk FOREIGN KEY(treatment_id)
 REFERENCES treatments(id);
+
+CREATE INDEX index_treatment ON invoice_items(treatment_id);
+
+CREATE INDEX index_medical_history ON invoices(medical_history_id);
+
+CREATE INDEX index_invoice ON invoice_items(treatment_id);
+
+CREATE INDEX index_patient ON medical_histories(patient_id);
